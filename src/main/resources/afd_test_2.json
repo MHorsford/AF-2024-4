@@ -1,0 +1,31 @@
+{
+  "states": ["q0", "q1", "q2"],
+  "initialState": "q0",
+  "finalStates": ["q0"],
+  "alphabet": ["a", "b"],
+  "transitions": {
+    "q0": {
+      "a": "q1",
+      "b": "q0"
+    },
+    "q1": {
+      "a": "q2",
+      "b": "q1"
+    },
+    "q2": {
+      "a": "q1",
+      "b": "q0"
+    }
+  },
+  "tests": [
+    {"input": "b", "expected": "true"},
+    {"input": "babab", "expected": "true"},
+    {"input": "baab", "expected": "true"},
+    {"input": "aab", "expected": "true"},
+    {"input": "bbbaabbbaaaaaabbbb", "expected": "true"},
+    {"input": "a", "expected": "false"},
+    {"input": "ab", "expected": "false"},
+    {"input": "bab", "expected": "false"},
+    {"input": "aba", "expected": "false"}
+  ]
+}

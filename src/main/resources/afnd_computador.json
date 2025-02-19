@@ -1,0 +1,49 @@
+{
+  "states": ["q0", "q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10"],
+  "initialState": "q0",
+  "finalStates": ["q0"],
+  "alphabet": ["c", "o", "m", "p", "u", "t", "a", "d", "r", "*"],
+  "transitions": {
+    "q0": {
+      "*": ["q0"],
+      "c": ["q0", "q1"]
+    },
+    "q1": {
+      "o": ["q2"]
+    },
+    "q2": {
+      "m": ["q3"]
+    },
+    "q3": {
+      "p": ["q4"]
+    },
+    "q4": {
+      "u": ["q5"]
+    },
+    "q5": {
+      "t": ["q6"]
+    },
+    "q6": {
+      "a": ["q7"]
+    },
+    "q7": {
+      "d": ["q8"]
+    },
+    "q8": {
+      "o": ["q9"]
+    },
+    "q9": {
+      "r": ["q10"]
+    },
+    "q10": {
+      "*": ["q0"]
+    }
+  },
+  "tests": [
+    {
+      "input": "O computador é uma máquina capaz de variados tipos de tratamento automático de\ninformações ou processamento de dados. Entende-se por computador um sistema físico\nque realiza algum tipo de computação. Assumiu-se que os computadores pessoais e\nlaptops são ícones da era da informação. O primeiro computador eletromecânico foi\nconstruído por Konrad Zuse (1910–1995). Atualmente, um microcomputador é também\nchamado computador pessoal ou ainda computador doméstico.",
+      "expectedPositions": []
+    }
+
+  ]
+}

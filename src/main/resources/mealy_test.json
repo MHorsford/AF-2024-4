@@ -1,0 +1,42 @@
+{
+  "states": ["q0", "q1", "q2", "q3", "q_overflow"],
+  "initialState": "q0",
+  "alphabet": ["25", "50", "100"],
+  "transitions": {
+    "q0": {
+      "25": { "nextState": "q1", "output": "0" },
+      "50": { "nextState": "q2", "output": "0" },
+      "100": { "nextState": "q_overflow", "output": "1" }
+    },
+    "q1": {
+      "25": { "nextState": "q2", "output": "0" },
+      "50": { "nextState": "q3", "output": "0" },
+      "100": { "nextState": "q_overflow", "output": "1" }
+    },
+    "q2": {
+      "25": { "nextState": "q3", "output": "0" },
+      "50": { "nextState": "q_overflow", "output": "1" },
+      "100": { "nextState": "q_overflow", "output": "1" }
+    },
+    "q3": {
+      "25": { "nextState": "q_overflow", "output": "1" },
+      "50": { "nextState": "q_overflow", "output": "1" },
+      "100": { "nextState": "q_overflow", "output": "1" }
+    },
+    "q_overflow": {
+      "25": { "nextState": "q_overflow", "output": "1" },
+      "50": { "nextState": "q_overflow", "output": "1" },
+      "100": { "nextState": "q_overflow", "output": "1" }
+    }
+  },
+  "tests": [
+    {"input": "25", "expected": "0"},
+    {"input": "50", "expected": "0"},
+    {"input": "100", "expected": "1"},
+    {"input": "25,50,25", "expected": "0,0,1"},
+    {"input": "50,50,25", "expected": "0,1,1"},
+    {"input": "100,25", "expected": "1,1"},
+    {"input": "25,25,25,25", "expected": "0,0,0,1"},
+    {"input": "25,50,100", "expected": "0,0,1"}
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "states": ["q0", "q1", "q2", "qERRO"],
+  "initialState": "q0",
+  "finalStates": ["q0"],
+  "alphabet": ["0", "1"],
+  "transitions": {
+    "q0": {
+      "0": "q0",
+      "1": "q1"
+    },
+    "q1": {
+      "0": "q2",
+      "1": "qERRO"
+    },
+    "q2": {
+      "0": "q0",
+      "1": "qERRO"
+    },
+    "qERRO": {
+      "0": "qERRO",
+      "1": "qERRO"
+    }
+  },
+  "tests": [
+    {"input": "", "expected": "true"},
+    {"input": "0", "expected": "true"},
+    {"input": "0100", "expected": "true"},
+    {"input": "100", "expected": "true"},
+    {"input": "000000000000000000", "expected": "true"},
+    {"input": "000010000000100000", "expected": "true"},
+    {"input": "1", "expected": "false"},
+    {"input": "1001", "expected": "false"},
+    {"input": "010", "expected": "false"},
+    {"input": "000100", "expected": "false"}
+  ]
+}
